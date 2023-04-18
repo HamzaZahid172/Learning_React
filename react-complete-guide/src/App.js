@@ -1,4 +1,5 @@
 import "./App.css";
+import React from "react";
 import Expense from "./components/Expense";
 
 function App() {
@@ -28,12 +29,20 @@ function App() {
       date: new Date(2021, 5, 12),
     },
   ];
-  return (
-    <div className="App">
-      <h2> Let's get started</h2>
-      <Expense items={expenses} />
-    </div>
+
+  return React.createElement(
+    "div",
+    { className: "App" },
+    React.createElement("h2", {}, " Let's get started"),
+    React.createElement(Expense, {items: expenses})
   );
+
+  // return (
+  //   <div className="App">
+  //     <h2> Let's get started</h2>
+  //     <Expense items={expenses} />
+  //   </div>
+  // );
 }
 
 export default App;
