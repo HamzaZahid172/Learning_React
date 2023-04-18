@@ -2,7 +2,7 @@ import "./App.css";
 import React from "react";
 import Expense from "./components/Expenses/Expense";
 
-function App() {
+const App = () => {
   const expenses = [
     {
       id: "e1",
@@ -30,19 +30,19 @@ function App() {
     },
   ];
 
-  return React.createElement(
-    "div",
-    { className: "App" },
-    React.createElement("h2", {}, " Let's get started"),
-    React.createElement(Expense, {items: expenses})
-  );
-
-  // return (
-  //   <div className="App">
-  //     <h2> Let's get started</h2>
-  //     <Expense items={expenses} />
-  //   </div>
+  // return React.createElement(
+  //   "div",
+  //   { className: "App" },
+  //   React.createElement("h2", {}, " Let's get started"),
+  //   React.createElement(Expense, { items: expenses })
   // );
-}
+
+  return (
+    <div className="App">
+      <h2> Let's get started</h2>
+      <Expense items={expenses} />
+    </div>
+  );
+};
 
 export default App;
