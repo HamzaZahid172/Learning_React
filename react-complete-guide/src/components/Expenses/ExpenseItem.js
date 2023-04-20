@@ -1,20 +1,23 @@
+import React, { useState } from "react";
 import ExpenseDate from "../Expenses/ExpenseDate";
 import Card from "../UI/Card";
 import "../Expenses/ExpenseItem.css";
 const ExpenseItem = (props) => {
+  const [title, setTitle] = useState(props.title);
   const clickButton = () => {
-    console.log('Clicked!!!!!');
-  }
+    setTitle(`Updated ${title}`);
+    console.log(title);
+  };
   return (
     <Card className="expense-item">
       <ExpenseDate date={props.date} />
       <div className="expense-item__description">
-        <h2>{props.title}</h2>
+        <h2>{title}</h2>
         <p className="expense-item__price">$ {props.amount}</p>
-        <button  onClick={clickButton}></button>
+        <button className="btn" onClick={clickButton}></button>
       </div>
     </Card>
   );
-}
+};
 
 export default ExpenseItem;
