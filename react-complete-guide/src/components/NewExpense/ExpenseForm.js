@@ -1,7 +1,7 @@
 import { useState } from "react";
 import "./ExpenseForm.css";
 
-const ExpenseForm = () => {
+const ExpenseForm = (props) => {
   // First Approach using multiple useState hook to trigger the change in Doc
   const [enterTitle, setEnterTitle] = useState("");
   const [enterAmount, setEnterAmount] = useState("");
@@ -57,15 +57,15 @@ const ExpenseForm = () => {
 
   const SubmitHandler = (event) => {
     event.preventDefault();
-    const expenseData = { 
+    const expenseData = {
       title: enterTitle,
       amount: enterAmount,
-      date: new Date(enterDate)
-     };
-    console.log(expenseData);
-    setEnterTitle('');
-    setEnterAmount('');
-    setEnterDate('');
+      date: new Date(enterDate),
+    };
+    props.onSaveAddExpense(expenseData);
+    setEnterTitle("");
+    setEnterAmount("");
+    setEnterDate("");
   };
 
   return (
@@ -73,11 +73,7 @@ const ExpenseForm = () => {
       <div className="new-expense__controls">
         <div className="new-expense__control">
           <label>Title</label>
-          <input
-            type="text"
-            value={enterTitle}
-            onChange={titleChangeHandler}
-          />
+          <input type="text" value={enterTitle} onChange={titleChangeHandler} />
         </div>
         <div className="new-expense__control">
           <label>Amount</label>
