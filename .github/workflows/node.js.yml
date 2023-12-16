@@ -31,4 +31,4 @@ jobs:
         cache: 'npm'
         cache-dependency-path: './react-complete-guide/package-lock.json'
     - run: npm ci
-    - run: npm run start
+    - run: npm run react-scripts start
